@@ -5,7 +5,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'quiz_brain.dart';
 
 QuizBrain quizBrain = QuizBrain();
-String? getQuestion;
+String? getQuestion="Let's Start";
 void main() => runApp(Quizzler());
 
 class Quizzler extends StatelessWidget {
