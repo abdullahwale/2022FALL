@@ -1,10 +1,12 @@
 import 'question.dart';
-
+String test='Some cats are actually allergic to humans';
+bool rs=true;
 class QuizBrain {
-  int _questionNumber = 0;
+  int _questionNumber =0;
+
 
   List<Question>  _questionBank = [
-    Question('Some cats are actually allergic to humans', true),
+    Question(test,rs),
     Question('You can lead a cow down stairs but not up stairs.', false),
     Question('Approximately one quarter of human bones are in the feet.', true),
     Question('A slug\'s blood is green.', true),
@@ -51,7 +53,7 @@ class QuizBrain {
     if (_questionNumber >= _questionBank.length - 1) {
       //TODO: Step 3 Part B - Use a print statement to check that isFinished is returning true when you are indeed at the end of the quiz and when a restart should happen.
 
-      print('Now returning true');
+     // print('Now returning true');
       return true;
 
     } else {

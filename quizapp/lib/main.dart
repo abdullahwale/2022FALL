@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+
 //TODO: Step 2 - Import the rFlutter_Alert package here.
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 import 'quiz_brain.dart';
 
 QuizBrain quizBrain = QuizBrain();
-String? getQuestion="Let's Start";
+  String  ? getQuestion ;
+
 void main() => runApp(Quizzler());
 
 class Quizzler extends StatelessWidget {
@@ -35,7 +37,6 @@ class _QuizPageState extends State<QuizPage> {
 
   void checkAnswer(bool userPickedAnswer) {
     bool? correctAnswer = quizBrain.getCorrectAnswer();
-
 
     setState(() {
       //TODO: Step 4 - Use IF/ELSE to check if we've reached the end of the quiz. If so,
@@ -70,7 +71,7 @@ class _QuizPageState extends State<QuizPage> {
         } else {
           scoreKeeper.add(Icon(
             Icons.close,
-            color: Colors.red,
+            color: Colors.white,
           ));
         }
         quizBrain.nextQuestion();
@@ -80,18 +81,18 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+
         Expanded(
-          flex: 5,
+          flex: 7,
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-               //quizBrain.getQuestionText(),
+                //quizBrain.getQuestionText(),
                 //getQuestion!,
                 getQuestion.toString(),
                 textAlign: TextAlign.center,
