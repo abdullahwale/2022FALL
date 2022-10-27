@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/30992818/62599565-25c06000-b91f-11e9-8b5c-63efecdeeef6.png)
+# One Day Tasks
 
 
 ![image](https://user-images.githubusercontent.com/30992818/62850471-84b61880-bd15-11e9-80d7-e2ed87aee4fe.png)
