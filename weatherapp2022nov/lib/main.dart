@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import './ui/WeatherUI.dart';
+import './ui/Climate.dart';
 
 void main() {
-  runApp( WeatherUI());
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        body: Climate(),
+      ),
+    ),
+  );
 }
-
-
