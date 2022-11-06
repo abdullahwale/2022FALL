@@ -5,9 +5,7 @@ class WeatherUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Stack(
+    return Stack(
           children: [
             // Positioned.fill(
             //   child: Image(
@@ -22,8 +20,6 @@ class WeatherUI extends StatelessWidget {
               fit: BoxFit.fill,
             ),
           ],
-        ),
-      ),
     );
   }
 }
