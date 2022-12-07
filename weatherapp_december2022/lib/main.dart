@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'ui/climateFile.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp( MaterialApp(
     title: 'Climat',
     home: Climate(),
   ));

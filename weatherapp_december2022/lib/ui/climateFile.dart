@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/apifile.dart' as util;
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+String ? newCity;
 class Climate extends StatefulWidget {
   @override
   _ClimateState createState() => _ClimateState();
@@ -18,13 +18,13 @@ class _ClimateState extends State<Climate> {
   String ? _cityEntered;
   Future _goToNextScreen(BuildContext context) async {
     Map ? results = await Navigator.of(context)
-        .push(new MaterialPageRoute<Map>(builder: (BuildContext context) {
+        .push( MaterialPageRoute<Map>(builder: (BuildContext context) {
       //change to Map instead of dynamic for this to work
-      return new ChangeCity();
+      return  ChangeCity();
     }));
 
     if (results != null && results.containsKey('enter')) {
-      _cityEntered = results['enter'];
+      newCity = results['enter'];
 
 //      debugPrint("From First screen" + results['enter'].toString());
 
@@ -59,7 +59,7 @@ class _ClimateState extends State<Climate> {
             alignment: Alignment.topRight,
             margin: EdgeInsets.fromLTRB(0.0, 10.9, 20.9, 0.0),
             child: Text(
-              '${_cityEntered == null ? util.defaultCity : _cityEntered}',
+              '${newCity == null ? util.defaultCity : newCity}',
               style: cityStyle(),
             ),
           ),
@@ -71,7 +71,7 @@ class _ClimateState extends State<Climate> {
           Container(
             margin: EdgeInsets.fromLTRB(30.0, 90.0, 0.0, 0.0),
             child: updateTempWidget(
-                '${_cityEntered == null ? util.defaultCity : _cityEntered}'),
+                '${newCity == null ? util.defaultCity : newCity}'),
           ),
         ],
       ),
@@ -97,20 +97,20 @@ class _ClimateState extends State<Climate> {
             Map ? content = snapshot.data;
             return Container(
               margin: const EdgeInsets.fromLTRB(30.0, 250.0, 0.0, 0.0),
-              child: new Column(
+              child:  Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  new ListTile(
-                    title: new Text(
+                   ListTile(
+                    title:  Text(
                       content!['main']['temp'].toString() + " F",
-                      style: new TextStyle(
+                      style:  TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 49.9,
                           color: Colors.white,
                           fontWeight: FontWeight.w500),
                     ),
-                    subtitle: new ListTile(
-                      title: new Text(
+                    subtitle:  ListTile(
+                      title:  Text(
                         "Humidity: ${content['main']['humidity'].toString()}\n"
                             "Min: ${content['main']['temp_min'].toString()} F\n"
                             "Max: ${content['main']['temp_max'].toString()} F ",
@@ -153,21 +153,19 @@ class ChangeCity extends StatelessWidget {
               ListTile(
                 title: TextField(
                   decoration: InputDecoration(
-                    hintText: 'Enter City',
+                    hintText: 'Enter City Name',
                   ),
                   controller: _cityFieldController,
                   keyboardType: TextInputType.text,
                 ),
               ),
               ListTile(
-                title: FlatButton(
+                title: TextButton(
                     onPressed: () {
                       Navigator.pop(
                           context, {'enter': _cityFieldController.text});
                     },
-                    textColor: Colors.white70,
-                    color: Colors.redAccent,
-                    child: Text('Get Weather')),
+                    child: Text('Get Weather to the Entered City')),
               )
             ],
           )
